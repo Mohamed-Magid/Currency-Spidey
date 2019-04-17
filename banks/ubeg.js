@@ -1,6 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-const sanitizer = require('./sanitizer');
+const { toFloat, getCurrID } = require('../helpers/purifiers');
 const fetch = async () => {
     const html = await axios({
         method: 'get',
@@ -15,9 +15,9 @@ const parseHTML = (html) => {
 
 
     for (let i = 1; i <= 6; i++){
-        result.UBEG[$(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).text()] = {
-            BuyRate: sanitizer.regulator($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),
-            SellRate: sanitizer.regulator($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text())
+        result.UBEG[getCurrID($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).text())] = {
+            BuyRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),
+            SellRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text())
         };
     }
 };

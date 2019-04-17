@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { getCurrID } = require('../helpers/purifiers');
 const fetch = async () => {
     const res = await axios({
         method: 'post',
@@ -14,7 +15,7 @@ const fetch = async () => {
 const handler = (data) => {
     const result = {CIB:{}};
     data.forEach(currency => {
-        result.CIB[currency.CurrencyID] = {
+        result.CIB[getCurrID(currency.CurrencyID)] = {
             BuyRate: currency.BuyRate,
             SellRate: currency.SellRate
         };
