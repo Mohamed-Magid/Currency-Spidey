@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { getCurrID } = require('../helpers/purifiers');
 const fetch = async () => {
-    const res = await axios({
+    const spider = await axios({
         method: 'post',
         url: 'https://www.cibeg.com/_layouts/15/LINKDev.CIB.CurrenciesFunds/FundsCurrencies.aspx/GetCurrencies',
         data: {
@@ -9,7 +9,7 @@ const fetch = async () => {
         }
     });
 
-    return handler(res.data.d);
+    return handler(spider.data.d);
 };
 
 const handler = (data) => {

@@ -13,7 +13,6 @@ const parseHTML = (html) => {
     const result = { UBEG: {} };
     const $ = cheerio.load(html);
 
-
     for (let i = 1; i <= 6; i++){
         result.UBEG[getCurrID($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).text())] = {
             BuyRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),

@@ -2,11 +2,11 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { getCurrID, toFloat } = require('../helpers/purifiers');
 const fetch = async () => {
-    const html = await axios({
+    const spider = await axios({
         method: 'get',
         url: 'https://aaib.com/en/rates'
     });
-    return parseHTML(html.data);
+    return parseHTML(spider.data);
 };
 
 const parseHTML = (html) => {
