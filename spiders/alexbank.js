@@ -1,19 +1,13 @@
-const axios = require('axios');
 const cheerio = require('cheerio');
 const { getCurrID, toFloat } = require('../helpers/purifiers');
-const { thrower } = require('../helpers/errors');
+const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    try {
-        const spider = await axios({
-            method: 'get',
-            url: 'https://www.alexbank.com/En/Home/exchangerates'
-        });
-        return parseHTML(spider.data);
-    } catch (e) {
-        return thrower('AlexBank', 408);
-    }
-
+    const dig = await digger('AlexBank', 'https://www.alexbank.com/En/Home/exchangerates');
+    if (dig.data)
+        return parseHTML(dig.data);
+    else
+        return dig;
 };
 
 const parseHTML = (html) => {

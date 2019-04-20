@@ -1,18 +1,13 @@
-const axios = require('axios');
 const cheerio = require('cheerio');
 const { getCurrID, toFloat } = require('../helpers/purifiers');
+const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    try {
-        const spider = await axios({
-            method: 'get',
-            url: 'http://www.banquemisr.com/en/exchangerates'
-        });
-
-        return parseHTML(spider.data);
-    } catch (e) {
-        console.log('Error fetching from Banque Misr');
-    }
+    const dig = await digger('AAIB', 'http://www.banquemisr.com/en/exchangerates');
+    if (dig.data)
+        return parseHTML(dig.data);
+    else
+        return dig;
 };
 
 const parseHTML = (html) => {

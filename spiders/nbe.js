@@ -1,21 +1,19 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { getCurrID, toFloat } = require('../helpers/purifiers');
-const fs = require('fs');
+const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-        const spider = await axios({
-            method: 'get',
-            url: 'https://www.nbe.com.eg/en/ExchangeRate.aspx'
-        });
-        return parseHTML(spider.data);
-  
+    const dig = await digger('AAIB', 'https://www.nbe.com.eg/en/ExchangeRate.aspx');
+    if (dig.data)
+        return parseHTML(dig.data);
+    else
+        return dig;
 };
 
 const parseHTML = (html) => {
     const $ = cheerio.load(html);
     const result = { NBE: {} };
-    fs.writeFileSync('html.html', $('#idts_content table tbody').html());
     for (let i = 2; i <= $('#idts_content table tbody tr').length; i++){
         result.NBE[getCurrID($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).text())] = {
             BuyRate: toFloat($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),

@@ -1,18 +1,13 @@
-const axios = require('axios');
 const cheerio = require('cheerio');
 const { getCurrID, toFloat } = require('../helpers/purifiers');
+const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    try {
-        const spider = await axios({
-            method: 'get',
-            url: 'https://www.cbe.org.eg/en/EconomicResearch/Statistics/Pages/OfficialRatesListing.aspx'
-        });
-    
-        return parseHTML(spider.data);
-    } catch (e) {
-        console.log('Error fetching from CBE');
-    }
+    const dig = await digger('AAIB', 'https://www.cbe.org.eg/en/EconomicResearch/Statistics/Pages/OfficialRatesListing.aspx');
+    if (dig.data)
+        return parseHTML(dig.data);
+    else
+        return dig;
 };
 
 const parseHTML = (html) => {

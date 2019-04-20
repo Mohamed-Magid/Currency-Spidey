@@ -1,16 +1,13 @@
-const axios = require('axios');
 const cheerio = require('cheerio');
 const { toFloat, getCurrID } = require('../helpers/purifiers');
+const { digger } = require('../spiders/digger');
+
 const fetch = async () => {
-    try {
-        const spider = await axios({
-            method: 'get',
-            url: 'https://www.theubeg.com/ub-services/foreign-currency-exchange'
-        });
-        return parseHTML(spider.data);
-    } catch (e) {
-        console.log('Error fetching from UBEG');
-    }
+    const dig = await digger('AAIB', 'https://www.theubeg.com/ub-services/foreign-currency-exchange');
+    if (dig.data)
+        return parseHTML(dig.data);
+    else
+        return dig;
 };
 
 const parseHTML = (html) => {

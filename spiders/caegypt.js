@@ -1,18 +1,13 @@
-const axios = require('axios');
 const cheerio = require('cheerio');
 const { getCurrID, toFloat } = require('../helpers/purifiers');
+const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    try {
-        const spider = await axios({
-            method: 'get',
-            url: 'https://www.ca-egypt.com/en/digital-services'
-        });
-    
-        return parseHTML(spider.data);
-    } catch (e) {
-        console.log('Error fetching from CaEgypt');
-    }
+    const dig = await digger('AAIB', 'https://www.ca-egypt.com/en/digital-services');
+    if (dig.data)
+        return parseHTML(dig.data);
+    else
+        return dig;
 };
 
 const parseHTML = (html) => {
