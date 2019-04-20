@@ -12,6 +12,6 @@ router.get('/api/info', infoController.all);
 
 router.get('/api/info/:bank', infoController.specified);
 
-router.get('*', (req, res) => res.status(404).send('404 Not Found'));
+router.get('/api/*', (req, res) => res.status(404).send('404 Not Found'));
 
 module.exports = router;
