@@ -62,6 +62,13 @@ const getInfo = () => {
                 ar: 'المصرف المتحد'
             },
             url: 'https://www.theubeg.com/ub-services/foreign-currency-exchange'
+        },
+        ADIB: {
+            fullName: {
+                en: 'Abu Dhabi Islamic Bank',
+                ar: 'مصرف أبو ظبي الإسلامى'
+            },
+            url: 'https://www.adib.eg/Foreign-Currencies'
         }
     };
 

@@ -8,6 +8,7 @@ const fetcher = {
     cbe: require('../spiders/cbe').fetch(),
     nbe: require('../spiders/nbe').fetch(),
     ubeg: require('../spiders/ubeg').fetch(),
+    adib: require('../spiders/adib').fetch()
 };
 
 const all = async () => {
@@ -20,7 +21,8 @@ const all = async () => {
         fetcher.caegypt,
         fetcher.cbe,
         fetcher.nbe,
-        fetcher.ubeg
+        fetcher.ubeg,
+        fetcher.adib
     ]);
     let response = {};
 

@@ -1,12 +1,10 @@
 {
   "name": "egyptians-banks-scrapper",
   "version": "1.0.0",
-  "description": "A Node.js app to scrape currency exchange rates from Egyptian banks websites.",
+  "description": "A JavaScript web spiders to scrape Egyptian banks websites and get currency exchange rates.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Mohamed Magid",
   "license": "ISC",

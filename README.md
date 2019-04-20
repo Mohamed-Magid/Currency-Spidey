@@ -5,11 +5,11 @@ A JavaScript/Node.js web crawlers to fetch currency exchange rates from Egyptian
 # API
 I've established an API to fetch data from the app, and here its features for now.
 ## Features
-1. Fetch :
+1. **Fetch** :
 * You can fetch data using this end point: ```/api/fetch```.
 this end point will return all the available data to you as a JSON response.
 * You can also request a specific bank to get data from, you can achieve that using this end point: ```/api/fetch/{bankCode}``` and I'll list all available bank codes at the end.
-2. Info :
+2. **Info** :
 * That's pretty simple. using this end point ```/api/info/``` It'll return to you the available data about the bank itself as a JSON, now it offers the full name of the bank in both English and Arabic and the URL of the currency exchange page on the bank's website. You can also request a specific bank with ```/api/info/{bankCode}```.
 ## Bank Codes
 Here's a list of the available bank codes for now, of course there's all be supported banks later.
@@ -22,6 +22,7 @@ Here's a list of the available bank codes for now, of course there's all be supp
 * CAEG: [Crédit Agricole](https://www.ca-egypt.com/en/digital-services).
 * CBE : [Central Bank of Egypt](https://www.cbe.org.eg/en/EconomicResearch/Statistics/Pages/OfficialRatesListing.aspx).
 * UBEG : [The United Bank](https://www.theubeg.com/ub-services/foreign-currency-exchange).
+* ADIB: [Abu Dhabi Islamic Bank](https://www.adib.eg/Foreign-Currencies).
 
 ## Currency Codes
 And also here's the available currencies (Note: not all currencies available in every bank).
@@ -43,6 +44,7 @@ And also here's the available currencies (Note: not all currencies available in 
 * QAR (Qatari Riyal).
 * JOD (Jordan Dinar).
 * CNY (Chinese Yuan).
+* THB (Thai Baht).
 
 # TODOs
 1. Setup an endpoint to target one currency and get a response for it's price in all available banks.
@@ -50,4 +52,4 @@ And also here's the available currencies (Note: not all currencies available in 
 3. Make smarter error handling.
 4. Store the response in a JSON file to serve the requests from it and update that file every six hours with a cron job.
 5. Make a web app based on the API to show exchange rates.
-6. An Android application with @Mr-Geek11 .
+6. An Android application with @Mr-Geek11.

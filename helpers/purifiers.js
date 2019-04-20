@@ -4,7 +4,7 @@ const getCurrID = (check) => {
         EUR: /E.?U.?R.?O?/gmi,
         GBP: /G.?B.?P?|Sterling|British/gmi,
         CHF: /C.?H.?F|Swiss|Franc/gmi,
-        AED: /U.?A.?E|Emirates|A.?E.?D|Dubai/gmi,
+        AED: /U.?A.?E|Emirati?(es)?|A.?E.?D|Dubai/gmi,
         SAR: /S.?A.?R|Saudia?/gmi,
         KWD: /K.?W.?D|Kuwaiti?/gmi,
         AUD: /A.?U.?D|Australian?/gmi,
@@ -19,7 +19,8 @@ const getCurrID = (check) => {
         NOK: /N.?O.?K|Norw(ay)?(egian)?/gmi,
         OMR: /O.?M.?R|Omani?/gmi,
         CNY: /C.?N.?Y|China?(ese)?|Yuan/gmi,
-        CYP: /C.?Y.?P(RUS)?/gmi
+        CYP: /C.?Y.?P(RUS)?/gmi,
+        THB: /T.?H.?B|Thai|Baht/gmi
     };
 
     for (let i = 0; i < Object.keys(patterns).length; i++){

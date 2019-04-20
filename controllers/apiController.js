@@ -43,6 +43,8 @@ const fetchBank = async (req, res) => {
         case 'ubeg':
             res.send(await fetcher.ubeg);
             break;
+        case 'adib':
+            res.send(await fetcher.adib);
         default:
             res.status(404).send(thrower(bank, 404));
     }
