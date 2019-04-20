@@ -3,7 +3,7 @@ const { getCurrID, toFloat } = require('../helpers/purifiers');
 const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    const dig = await digger('AAIB', 'https://www.ca-egypt.com/en/digital-services');
+    const dig = await digger('CaEgypt', 'https://www.ca-egypt.com/en/digital-services');
     if (dig.data)
         return parseHTML(dig.data);
     else

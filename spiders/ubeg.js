@@ -3,7 +3,7 @@ const { toFloat, getCurrID } = require('../helpers/purifiers');
 const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    const dig = await digger('AAIB', 'https://www.theubeg.com/ub-services/foreign-currency-exchange');
+    const dig = await digger('UBEG', 'https://www.theubeg.com/ub-services/foreign-currency-exchange');
     if (dig.data)
         return parseHTML(dig.data);
     else

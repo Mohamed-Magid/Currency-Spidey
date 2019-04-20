@@ -4,7 +4,7 @@ const { getCurrID, toFloat } = require('../helpers/purifiers');
 const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    const dig = await digger('AAIB', 'https://www.nbe.com.eg/en/ExchangeRate.aspx');
+    const dig = await digger('NBE', 'https://www.nbe.com.eg/en/ExchangeRate.aspx');
     if (dig.data)
         return parseHTML(dig.data);
     else

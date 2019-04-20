@@ -3,7 +3,7 @@ const { getCurrID, toFloat } = require('../helpers/purifiers');
 const { digger } = require('../spiders/digger');
 
 const fetch = async () => {
-    const dig = await digger('AAIB', 'http://www.banquemisr.com/en/exchangerates');
+    const dig = await digger('BanqueMisr', 'http://www.banquemisr.com/en/exchangerates');
     if (dig.data)
         return parseHTML(dig.data);
     else
