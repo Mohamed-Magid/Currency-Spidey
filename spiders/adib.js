@@ -12,15 +12,18 @@ const fetch = async () => {
 
 const parseHTML = (html) => {
     const $ = cheerio.load(html);
-    const result = { ADIB: {} };
-
-    // fs.writeFileSync('html.html', $('table.tbl-analyst tbody'));
+    const result = { BankCode: 'ADIB', currencies: [] };
 
     for (let i = 3; i <= $('table.tbl-analyst tbody tr').length; i++){
-        result.ADIB[getCurrID($(`table.tbl-analyst tbody tr:nth-of-type(${i}) td:nth-of-type(${1})`))] = {
+        // result.ADIB[getCurrID($(`table.tbl-analyst tbody tr:nth-of-type(${i}) td:nth-of-type(${1})`))] = {
+        //     BuyRate: toFloat($(`table.tbl-analyst tbody tr:nth-of-type(${i}) td:nth-of-type(${4})`).text()),
+        //     SellRate: toFloat($(`table.tbl-analyst tbody tr:nth-of-type(${i}) td:nth-of-type(${5})`).text())
+        // };
+        result.currencies.push({
+            CurrencyID: getCurrID($(`table.tbl-analyst tbody tr:nth-of-type(${i}) td:nth-of-type(${1})`).text()),
             BuyRate: toFloat($(`table.tbl-analyst tbody tr:nth-of-type(${i}) td:nth-of-type(${4})`).text()),
             SellRate: toFloat($(`table.tbl-analyst tbody tr:nth-of-type(${i}) td:nth-of-type(${5})`).text())
-        };
+        });
     }
     return result;
 };

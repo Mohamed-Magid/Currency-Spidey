@@ -10,13 +10,19 @@ const fetch = async () => {
         return dig;
 };
 const parseHTML = (html) => {
-    const result = { AAIB: {} };
+    const result = { BankCode: 'AAIB', currencies: [] };
+    // const result = { AAIB: {} };
     const $ = cheerio.load(html);
     for (let i = 1; i < $('#rates-table tr').length; i++) {
-        result.AAIB[getCurrID($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(1)`))] = {
-            BuyRate: toFloat($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(2)`).html()),
-            SellRate: toFloat($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(3)`).html())
-        };
+        // result.AAIB[getCurrID($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(1)`))] = {
+        //     BuyRate: toFloat($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(2)`).html()),
+        //     SellRate: toFloat($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(3)`).html())
+        // };
+        result.currencies.push({
+            CurrencyID: getCurrID($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(1)`).text()),
+            BuyRate: toFloat($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(2)`).text()),
+            SellRate:toFloat($(`#rates-table tr:nth-of-type(${i}) td:nth-of-type(3)`).text())
+        });
     }
     
     return result;

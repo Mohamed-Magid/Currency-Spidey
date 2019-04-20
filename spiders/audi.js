@@ -12,12 +12,17 @@ const fetch = async () => {
 
 const parseHTML = (html) => {
     const $ = cheerio.load(html);
-    const result = { AUDI: {} };
+    const result = { BankCode: 'AUDI', currencies:[] };
     for (let i = 3; i <= $('.ratesHolderTable tbody tr').length; i++) {
-        result.AUDI[getCurrID($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).html())] = {
-            BuyRate: toFloat($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).html()),
-            SellRate: toFloat($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).html())
-        };
+        // result.AUDI[getCurrID($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).html())] = {
+        //     BuyRate: toFloat($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).html()),
+        //     SellRate: toFloat($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).html())
+        // };
+        result.currencies.push({
+            CurrencyID: getCurrID($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).text()),
+            BuyRate: toFloat($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).text()),
+            SellRate: toFloat($(`.ratesHolderTable tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text())
+        });
     }
     return result;
 };

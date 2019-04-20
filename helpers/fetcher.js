@@ -24,13 +24,14 @@ const all = async () => {
         fetcher.ubeg,
         fetcher.adib
     ]);
-    let response = {};
+    // let response = {};
 
-    result.forEach((bank) => {
-        response[Object.keys(bank)[0]] = bank[Object.keys(bank)[0]];
-    });
+    // result.forEach((bank) => {
+    //     response[Object.keys(bank)[0]] = bank[Object.keys(bank)[0]];
+    // });
 
-    return response;
+    // return response;
+    return result;
 
 };
 

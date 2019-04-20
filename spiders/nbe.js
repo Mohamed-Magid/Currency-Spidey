@@ -13,12 +13,17 @@ const fetch = async () => {
 
 const parseHTML = (html) => {
     const $ = cheerio.load(html);
-    const result = { NBE: {} };
+    const result = { BankCode: 'NBE', currencies: [] };
     for (let i = 2; i <= $('#idts_content table tbody tr').length; i++){
-        result.NBE[getCurrID($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).text())] = {
+        // result.NBE[getCurrID($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).text())] = {
+        //     BuyRate: toFloat($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),
+        //     SellRate: toFloat($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text())
+        // };
+        result.currencies.push({
+            CurrencyID: getCurrID($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).text()),
             BuyRate: toFloat($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),
             SellRate: toFloat($(`#idts_content table tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text())
-        };
+        });
     }
 
     return result;

@@ -11,14 +11,19 @@ const fetch = async () => {
 };
 
 const parseHTML = (html) => {
-    const result = { UBEG: {} };
+    const result = { BankCode: 'UBEG', currencies: [] };
     const $ = cheerio.load(html);
 
     for (let i = 1; i <= 6; i++){
-        result.UBEG[getCurrID($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).text())] = {
+        // result.UBEG[getCurrID($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).text())] = {
+        //     BuyRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),
+        //     SellRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text())
+        // };
+        result.currencies.push({
+            CurrencyID: getCurrID($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(2)`).text()),
             BuyRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),
             SellRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text())
-        };
+        });
     }
     
     return result;
