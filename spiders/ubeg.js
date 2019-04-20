@@ -2,11 +2,15 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { toFloat, getCurrID } = require('../helpers/purifiers');
 const fetch = async () => {
-    const html = await axios({
-        method: 'get',
-        url: 'https://www.theubeg.com/ub-services/foreign-currency-exchange'
-    });
-    return parseHTML(html.data);
+    try {
+        const spider = await axios({
+            method: 'get',
+            url: 'https://www.theubeg.com/ub-services/foreign-currency-exchange'
+        });
+        return parseHTML(spider.data);
+    } catch (e) {
+        console.log('Error fetching from UBEG');
+    }
 };
 
 const parseHTML = (html) => {
@@ -19,6 +23,8 @@ const parseHTML = (html) => {
             SellRate: toFloat($(`table.exchange-table tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text())
         };
     }
+    
+    return result;
 };
 
 module.exports = { fetch };

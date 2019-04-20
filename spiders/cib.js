@@ -1,15 +1,19 @@
 const axios = require('axios');
 const { getCurrID } = require('../helpers/purifiers');
 const fetch = async () => {
-    const spider = await axios({
-        method: 'post',
-        url: 'https://www.cibeg.com/_layouts/15/LINKDev.CIB.CurrenciesFunds/FundsCurrencies.aspx/GetCurrencies',
-        data: {
-            lang: 'en'
-        }
-    });
-
-    return handler(spider.data.d);
+    try {
+        const spider = await axios({
+            method: 'post',
+            url: 'https://www.cibeg.com/_layouts/15/LINKDev.CIB.CurrenciesFunds/FundsCurrencies.aspx/GetCurrencies',
+            data: {
+                lang: 'en'
+            }
+        });
+    
+        return handler(spider.data.d);
+    } catch (e) {
+        console.log('Error fetching from CIB');
+    }
 };
 
 const handler = (data) => {

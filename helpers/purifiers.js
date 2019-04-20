@@ -15,9 +15,11 @@ const getCurrID = (check) => {
         DKK: /D.?K.?K|Danish|Denmarks?/gmi,
         JPY: /J.?P.?Y|Japan(ese)?|Yen/gmi,
         BHD: /B.?H.?D|Bahraini?/gmi,
-        SEK: /S.?E.?K|Swidi?e?sh/gmi, // A bank misspelled it
+        SEK: /S.?E.?K|Swi?e?di?e?sh/gmi, // A bank misspelled it
         NOK: /N.?O.?K|Norw(ay)?(egian)?/gmi,
-        OMR: /O.?M.?R|Omani?/gmi
+        OMR: /O.?M.?R|Omani?/gmi,
+        CNY: /C.?N.?Y|China?(ese)?|Yuan/gmi,
+        CYP: /C.?Y.?P(RUS)?/gmi
     };
 
     for (let i = 0; i < Object.keys(patterns).length; i++){
@@ -29,11 +31,13 @@ const getCurrID = (check) => {
 };
 
 const toFloat = (value) => {
-    return parseFloat(value);
+    if (isNaN(value) || value.length === 0)
+        return 'N/A';
+    else
+        return parseFloat(value);
 };
 
 module.exports = {
     getCurrID,
     toFloat
 };
-

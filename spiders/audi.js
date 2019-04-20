@@ -1,12 +1,18 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { toFloat, getCurrID } = require('../helpers/purifiers');
-const fetch = async() => {
-    const spider = await axios({
-        method: 'get',
-        url: 'http://www.bankaudi.com.eg/egypt/fx-rates'
-    });
-    return parseHTML(spider.data);
+const { thrower } = require('../helpers/errors');
+
+const fetch = async () => {
+    try {
+        const spider = await axios({
+            method: 'get',
+            url: 'http://www.bankaudi.com.eg/egypt/fx-rates'
+        });
+        return parseHTML(spider.data);
+    } catch (e) {
+        return thrower('Audi', 408);
+    }
 };
 
 const parseHTML = (html) => {

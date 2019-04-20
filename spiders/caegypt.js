@@ -3,12 +3,16 @@ const cheerio = require('cheerio');
 const { getCurrID, toFloat } = require('../helpers/purifiers');
 
 const fetch = async () => {
-    const spider = await axios({
-        method: 'get',
-        url: 'https://www.ca-egypt.com/en/digital-services'
-    });
-
-    return parseHTML(spider.data);
+    try {
+        const spider = await axios({
+            method: 'get',
+            url: 'https://www.ca-egypt.com/en/digital-services'
+        });
+    
+        return parseHTML(spider.data);
+    } catch (e) {
+        console.log('Error fetching from CaEgypt');
+    }
 };
 
 const parseHTML = (html) => {
