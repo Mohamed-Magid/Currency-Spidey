@@ -10,10 +10,7 @@ const all = async () => {
     for (let i = 0; i < spiders.length; i++) {
         eval(`promises[i] = fetcher.${spiders[i]}`);
     }
-    const result = await Promise.all(promises);
-
-    return result;
-
+    return Promise.all(promises);
 };
 
 const specific = async (bank) => {
