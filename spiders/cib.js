@@ -19,9 +19,6 @@ const fetch = async () => {
 const handler = (data) => {
     const result = {BankCode: 'CIB', currencies:[]};
     data.forEach(currency => {
-        // result.CIB[getCurrID(currency.CurrencyID)] = {
-        //     BuyRate: currency.BuyRate,
-        //     SellRate: currency.SellRate
         result.currencies.push({
             CurrencyID: getCurrID(currency.CurrencyID),
             BuyRate: currency.BuyRate,

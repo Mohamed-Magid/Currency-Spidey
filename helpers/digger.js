@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { thrower } = require('../helpers/errors');
+const { thrower } = require('./errors');
 
 const digger = async (bank, url) => {
     try {
