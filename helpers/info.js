@@ -87,6 +87,14 @@ const getInfo = () => {
             },
             url: 'https://www.eg-bank.com/Ar/ExchangeRate',
             logo: 'https://www.eg-bank.com/images/Ar_EGB_logo.png'
+        },
+        NBK: {
+            fullName: {
+                en: 'National Bank of Kuwait',
+                ar: 'بنك الكويت الوطنى'
+            },
+            url: 'https://www.nbk.com/egypt/personal/currency-rates.html',
+            logo: 'https://www.nbk.com/.imaging/default/dam/nbk/logo.png/jcr:content.png'
         }
     };
 

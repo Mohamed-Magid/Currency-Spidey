@@ -31,8 +31,9 @@ Here's a list of the available bank codes for now, of course there's all be supp
 * CAEG: [Crédit Agricole](https://www.ca-egypt.com/en/digital-services).
 * CBE : [Central Bank of Egypt](https://www.cbe.org.eg/en/EconomicResearch/Statistics/Pages/OfficialRatesListing.aspx).
 * UBEG : [The United Bank](https://www.theubeg.com/ub-services/foreign-currency-exchange).
-* ADIB: [Abu Dhabi Islamic Bank](https://www.adib.eg/Foreign-Currencies).
-* EGBANK: [EG Bank](https://www.eg-bank.com/En/ExchangeRate).
+* ADIB : [Abu Dhabi Islamic Bank](https://www.adib.eg/Foreign-Currencies).
+* EGBANK : [EG Bank](https://www.eg-bank.com/En/ExchangeRate).
+* NBK : [National Bank of Kuwait](https://www.nbk.com/egypt/personal/currency-rates.html).
 
 ## Currency Codes
 
