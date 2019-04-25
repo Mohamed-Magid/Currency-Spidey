@@ -11,7 +11,6 @@ const fetch = async () => {
 };
 const parseHTML = (html) => {
     const result = { BankCode: 'AAIB', currencies: [] };
-    // const result = { AAIB: {} };
     const $ = cheerio.load(html);
     for (let i = 1; i < $('#rates-table tr').length; i++) {
         result.currencies.push({

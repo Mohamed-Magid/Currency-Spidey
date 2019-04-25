@@ -32,10 +32,13 @@ const getCurrID = (check) => {
 };
 
 const toFloat = (value) => {
-    if (isNaN(value) || value.length === 0)
+    if (isNaN(value))
+        value = value.replace(/[^\d.]/gmi, '');
+    
+    if (value.length === 0)
         return 'N/A';
-    else
-        return parseFloat(value);
+    
+    return parseFloat(value);
 };
 
 module.exports = {

@@ -79,6 +79,14 @@ const getInfo = () => {
             },
             url: 'https://www.adib.eg/Foreign-Currencies',
             logo: 'https://www.adib.eg/media/146118/logo.png'
+        },
+        EGBANK: {
+            fullName: {
+                en: 'EG Bank',
+                ar: 'البنك المصرى الخليجى'
+            },
+            url: 'https://www.eg-bank.com/Ar/ExchangeRate',
+            logo: 'https://www.eg-bank.com/images/Ar_EGB_logo.png'
         }
     };
 

@@ -6,10 +6,7 @@ const fetchAll = async (req, res) => {
     try {
         res.send(await all());
     } catch (e) {
-        res.status(503).send({
-            code: 503,
-            message: 'Unable to fetch at the moment'
-        });
+        res.status(503).send(thrower(undefined, 503));
     }
 };
 
