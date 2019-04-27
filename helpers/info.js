@@ -103,6 +103,14 @@ const getInfo = () => {
             },
             url: 'https://www.blombankegypt.com/BlomEgypt/Exchange-rates',
             logo: 'https://www.blombankegypt.com/BlomEgypt/images/logo.png'
+        },
+        AIB: {
+            fullName: {
+                en: 'Arab International Bank',
+                ar: 'المصرف العربى الدولى'
+            },
+            url: 'https://aib.com.eg/',
+            logo: 'https://aib.com.eg/img/logo.bmp'
         }
     };
 

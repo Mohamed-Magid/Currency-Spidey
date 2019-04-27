@@ -15,7 +15,7 @@ const parseHTML = (html) => {
     // fs.writeFileSync('html.html', $('table').html());
     for (let i = 3; i <= $('table:has(.titlesRow) tbody tr').length; i++) {
         result.currencies.push({
-            BankCode: getCurrID($(`table:has(.titlesRow) tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).text()),
+            CurrencyID: getCurrID($(`table:has(.titlesRow) tbody tr:nth-of-type(${i}) td:nth-of-type(1)`).text()),
             BuyRate: toFloat($(`table:has(.titlesRow) tbody tr:nth-of-type(${i}) td:nth-of-type(3)`).text()),
             SellRate: toFloat($(`table:has(.titlesRow) tbody tr:nth-of-type(${i}) td:nth-of-type(4)`).text()),
         });
