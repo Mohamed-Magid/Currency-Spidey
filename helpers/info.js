@@ -95,6 +95,14 @@ const getInfo = () => {
             },
             url: 'https://www.nbk.com/egypt/personal/currency-rates.html',
             logo: 'https://www.nbk.com/.imaging/default/dam/nbk/logo.png/jcr:content.png'
+        },
+        BLOM: {
+            fullName: {
+                en: 'Blom Bank Egypt',
+                ar: 'بنك بلوم مصر'
+            },
+            url: 'https://www.blombankegypt.com/BlomEgypt/Exchange-rates',
+            logo: 'https://www.blombankegypt.com/BlomEgypt/images/logo.png'
         }
     };
 
