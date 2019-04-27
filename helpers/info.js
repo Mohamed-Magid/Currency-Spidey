@@ -111,6 +111,14 @@ const getInfo = () => {
             },
             url: 'https://aib.com.eg/',
             logo: 'https://aib.com.eg/img/logo.bmp'
+        },
+        NBG: {
+            fullName: {
+                en: 'National Bank of Greece',
+                ar: 'البنك الأهلى اليونانى'
+            },
+            url: 'http://www.nbg.com.eg/en/exchange-rates',
+            logo: 'http://www.nbg.com.eg/en/img/NBGlogo70.svg'
         }
     };
 

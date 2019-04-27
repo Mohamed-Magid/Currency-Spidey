@@ -36,6 +36,7 @@ Here's a list of the available bank codes for now, of course there will be more 
 * NBK : [National Bank of Kuwait](https://www.nbk.com/egypt/personal/currency-rates.html).
 * BLOM: [Blom Bank Egypt](https://www.blombankegypt.com/BlomEgypt/Exchange-rates).
 * AIB: [Arab International Bank](https://aib.com.eg).
+* NBG: [National Bank of Greece](http://www.nbg.com.eg/en/exchange-rates).
 
 ## Currency Codes
 
