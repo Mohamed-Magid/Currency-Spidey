@@ -119,6 +119,14 @@ const getInfo = () => {
             },
             url: 'http://www.nbg.com.eg/en/exchange-rates',
             logo: 'http://www.nbg.com.eg/en/img/NBGlogo70.svg'
+        },
+        HDB: {
+            fullName: {
+                en: 'Housing and Development Bank',
+                ar: 'بنك التعمير والإسكان'
+            },
+            url: 'https://www.hdb-egy.com/index.php/currency-exchange',
+            logo: 'https://www.hdb-egy.com/application/themes/hdbeg/images/logo.gif'
         }
     };
 
